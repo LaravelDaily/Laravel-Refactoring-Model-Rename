@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 @section('content')
-@can('reservation_create')
+@can('product_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.reservations.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.reservation.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.products.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.product.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.reservation.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.product.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
@@ -23,16 +23,16 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.reservation.fields.id') }}
+                            {{ trans('cruds.product.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.reservation.fields.user') }}
+                            {{ trans('cruds.product.fields.user') }}
                         </th>
                         <th>
-                            {{ trans('cruds.reservation.fields.details') }}
+                            {{ trans('cruds.product.fields.details') }}
                         </th>
                         <th>
-                            {{ trans('cruds.reservation.fields.status') }}
+                            {{ trans('cruds.product.fields.status') }}
                         </th>
                         <th>
                             &nbsp;
@@ -40,38 +40,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($reservations as $key => $reservation)
-                        <tr data-entry-id="{{ $reservation->id }}">
+                    @foreach($products as $key => $product)
+                        <tr data-entry-id="{{ $product->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $reservation->id ?? '' }}
+                                {{ $product->id ?? '' }}
                             </td>
                             <td>
-                                {{ $reservation->user->name ?? '' }}
+                                {{ $product->user->name ?? '' }}
                             </td>
                             <td>
-                                {{ $reservation->details ?? '' }}
+                                {{ $product->details ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\Reservation::STATUS_SELECT[$reservation->status] ?? '' }}
+                                {{ App\Models\Reservation::STATUS_SELECT[$product->status] ?? '' }}
                             </td>
                             <td>
-                                @can('reservation_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.reservations.show', $reservation->id) }}">
+                                @can('product_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.products.show', $product->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('reservation_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.reservations.edit', $reservation->id) }}">
+                                @can('product_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.products.edit', $product->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('reservation_delete')
-                                    <form action="{{ route('admin.reservations.destroy', $reservation->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('product_delete')
+                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -96,11 +96,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('reservation_delete')
+@can('product_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.reservations.massDestroy') }}",
+    url: "{{ route('admin.products.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -136,7 +136,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

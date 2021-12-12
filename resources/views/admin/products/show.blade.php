@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.reservation.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.product.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.reservations.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.products.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,40 +17,40 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.reservation.fields.id') }}
+                            {{ trans('cruds.product.fields.id') }}
                         </th>
                         <td>
-                            {{ $reservation->id }}
+                            {{ $product->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.reservation.fields.user') }}
+                            {{ trans('cruds.product.fields.user') }}
                         </th>
                         <td>
-                            {{ $reservation->user->name ?? '' }}
+                            {{ $product->user->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.reservation.fields.details') }}
+                            {{ trans('cruds.product.fields.details') }}
                         </th>
                         <td>
-                            {{ $reservation->details }}
+                            {{ $product->details }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.reservation.fields.status') }}
+                            {{ trans('cruds.product.fields.status') }}
                         </th>
                         <td>
-                            {{ App\Models\Reservation::STATUS_SELECT[$reservation->status] ?? '' }}
+                            {{ App\Models\Reservation::STATUS_SELECT[$product->status] ?? '' }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.reservations.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.products.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

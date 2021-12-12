@@ -57,13 +57,13 @@
                 </ul>
             </li>
         @endcan
-        @can('reservation_access')
+        @can('product_access')
             <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.reservations.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/reservations") || request()->is("admin/reservations/*") ? "c-active" : "" }}">
+                <a href="{{ route("admin.products.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/products") || request()->is("admin/products/*") ? "c-active" : "" }}">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.reservation.title') }}
+                    {{ trans('cruds.product.title') }}
                 </a>
             </li>
         @endcan

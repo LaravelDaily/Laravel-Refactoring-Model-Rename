@@ -76,23 +76,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 17,
-                'title' => 'reservation_create',
+                'title' => 'product_create',
             ],
             [
                 'id'    => 18,
-                'title' => 'reservation_edit',
+                'title' => 'product_edit',
             ],
             [
                 'id'    => 19,
-                'title' => 'reservation_show',
+                'title' => 'product_show',
             ],
             [
                 'id'    => 20,
-                'title' => 'reservation_delete',
+                'title' => 'product_delete',
             ],
             [
                 'id'    => 21,
-                'title' => 'reservation_access',
+                'title' => 'product_access',
             ],
             [
                 'id'    => 22,

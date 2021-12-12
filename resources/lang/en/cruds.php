@@ -65,9 +65,9 @@ return [
             'deleted_at_helper'        => ' ',
         ],
     ],
-    'reservation' => [
-        'title'          => 'Reservations',
-        'title_singular' => 'Reservation',
+    'product' => [
+        'title'          => 'Products',
+        'title_singular' => 'Product',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',

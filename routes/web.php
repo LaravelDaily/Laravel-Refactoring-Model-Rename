@@ -26,8 +26,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('users', 'UsersController');
 
     // Reservations
-    Route::delete('reservations/destroy', 'ReservationsController@massDestroy')->name('reservations.massDestroy');
-    Route::resource('reservations', 'ReservationsController');
+    Route::delete('products/destroy', 'ProductsController@massDestroy')->name('products.massDestroy');
+    Route::resource('products', 'ProductsController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
